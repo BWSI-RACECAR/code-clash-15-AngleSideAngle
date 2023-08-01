@@ -58,7 +58,7 @@ class Solution:
             res = []
             for start in range(len(intervals)):
                 tmp = [start]
-                for i in range(start, len(intervals)):
+                for i in range(intervals[start], len(intervals)):
                     if not overlap(tmp[-1], intervals[i]):
                         tmp.append(intervals[i])
                 if sum(tmp) > sum(res):
