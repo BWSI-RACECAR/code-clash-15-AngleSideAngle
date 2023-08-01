@@ -46,14 +46,8 @@ class Solution:
             
             def overlap(one, two):
                 return two[0] in range(one[0], one[1]) or two[1] in range(one[0], one[1])
-                 
-            for i in range(len(intervals)):
-                for j in range(len(intervals)):
-                    if time(intervals[i]) > time(intervals[j]):
-                        tmp = intervals[i]
-                        intervals[i] = intervals[j]
-                        intervals[j] = tmp
-
+            
+            intervals = sorted(intervals, key=time)
 
             res = []
             for start in range(len(intervals)):
@@ -65,12 +59,6 @@ class Solution:
                     res = tmp
 
             return res
-                    
-
-
-    
-         
-
 
 
 def main():
