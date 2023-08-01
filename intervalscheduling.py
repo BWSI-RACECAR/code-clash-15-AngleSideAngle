@@ -61,7 +61,7 @@ class Solution:
                 for i in range(start, len(intervals)):
                     if not overlap(tmp[-1], intervals[i]):
                         tmp.append(intervals[i])
-                if sum(tmp) > sum(res):
+                if sum([time(x) for x in tmp]) > sum([time(x) for x in res]):
                     res = tmp
 
             return res
