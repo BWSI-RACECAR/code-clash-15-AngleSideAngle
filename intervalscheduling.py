@@ -36,7 +36,7 @@ Select all three (1, 2), (2, 3) and (3, 4) as those are all compatible events an
 """
 
 class Solution:
-    def interval_scheduling(self, intervals, hrs = 0):
+    def interval_scheduling(self, intervals):
             #type intervals: list of int tuples
             #return type: list of int tuples
             
@@ -54,10 +54,15 @@ class Solution:
                         intervals[i] = intervals[j]
                         intervals[j] = tmp
 
-            res = [intervals[0]]
-            for inter in intervals:
-                if not overlap(res[-1], inter):
-                    res.append(inter)
+
+            res = []
+            for start in range(len(intervals)):
+                tmp = [start]
+                for i in range(start, len(intervals)):
+                    if not overlap(tmp[-1], intervals[i]):
+                        tmp.append(intervals[i])
+                if sum(tmp) > sum(res):
+                    res = tmp
 
             return res
                     
