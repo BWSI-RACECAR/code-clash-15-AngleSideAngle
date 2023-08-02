@@ -34,8 +34,8 @@
       "name": "Test4",
       "setup": "",
       "run": "python3 intervalscheduling.py",
-      "input": "(1, 5), (2, 4), (3, 6), (5, 7)",
-      "output": "[(2, 4), (5, 7)]",
+      "input": "(1, 5), (2, 4), (3, 5), (4, 5),(5, 7), (1, 2)",
+      "output": "[(1, 2), (2, 4), (4, 5), (5, 7)",
       "comparison": "included",
       "timeout": 1,
       "points": 10
