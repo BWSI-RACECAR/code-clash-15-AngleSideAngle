@@ -43,11 +43,17 @@ class Solution:
             def overlap(one, two):
                 return two[0] in range(one[0], one[1]) or two[1] in range(one[0], one[1])
             
+            def overlap_in(total, new):
+                for inter in total:
+                    if overlap(new, inter):
+                        return False
+                return True
+            
             intervals = sorted(intervals, key=lambda x: x[1]) # sort by end time
 
             res = []
             for interval in intervals:
-                if not overlap(interval, res[-1]):
+                if not overlap_in(res, interval):
                     res += interval
 
             return res
