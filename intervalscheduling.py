@@ -40,23 +40,15 @@ class Solution:
             #type intervals: list of int tuples
             #return type: list of int tuples
             
-            #TODO: Write code below to return an int tuples list with the solution to the prompt.
-            def time(interval):
-                return interval[1] - interval[0]
-            
             def overlap(one, two):
                 return two[0] in range(one[0], one[1]) or two[1] in range(one[0], one[1])
             
-            intervals = sorted(intervals, key=time)
+            intervals = sorted(intervals, key=lambda x: x[1]) # sort by end time
 
             res = []
-            for start in range(len(intervals)):
-                tmp = [intervals[start]]
-                for i in range(start, len(intervals)):
-                    if not overlap(tmp[-1], intervals[i]):
-                        tmp.append(intervals[i])
-                if len(tmp) > len(res):
-                    res = tmp
+            for interval in intervals:
+                if not overlap(interval, res[-1]):
+                    res += interval
 
             return res
 
