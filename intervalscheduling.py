@@ -45,7 +45,7 @@ class Solution:
             
             def overlap_in(cases, new):
                 for case in cases:
-                    if overlap(case, new):
+                    if overlap(case, new) or overlap(new, case):
                         return True
                 return False
             
