@@ -54,7 +54,7 @@ class Solution:
             res = []
             for interval in intervals:
                 if not overlap_in(cases=res, new=interval):
-                    res += interval
+                    res.append(interval)
 
             return res
 
