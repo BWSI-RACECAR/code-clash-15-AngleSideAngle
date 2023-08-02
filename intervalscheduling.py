@@ -41,7 +41,7 @@ class Solution:
             #return type: list of int tuples
             
             def overlap(one, two):
-                return two[0] in range(one[0], one[1]) or two[1] in range(one[0], one[1])
+                return two[0] in range(one[0]+1, one[1]) or two[1] in range(one[0]+1, one[1])
             
             def overlap_in(cases, new):
                 for case in cases:
